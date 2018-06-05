@@ -1,0 +1,10 @@
+﻿@using NewCakeMakerASP.NET.Models
+@model List<NewTypeProduct>
+
+@{
+    foreach (var item in Model)
+    {
+        <a id="btnChuDe" style="width:250px; font-size:13pt; color:aliceblue;text-decoration:none"  href="@Url.Action("BanhTheoType",new {@id=item.TypeProductId })" class="button button-submit">@item.Name</a>
+    }
+}
+

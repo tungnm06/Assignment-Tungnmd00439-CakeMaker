@@ -1,0 +1,123 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+
+    <link href="~/Content/TrangChuLayoutCss/fonts.css" rel="stylesheet" />
+    <link href="~/Content/TrangChuLayoutCss/screen.css" rel="stylesheet" />
+    <link href="~/Content/TrangChuLayoutCss/TrangChuCss.css" rel="stylesheet" />
+    <link href="~/Content/web-fonts-with-css/css/fontawesome-all.min.css" rel="stylesheet" />
+    <style type="text/css">
+        .LoginOK {
+            display: none;
+        }
+    </style>
+    @if (Session["Account"] != null)
+    {
+        <style type="text/css">
+            .DangKyDangNhap {
+                display: none;
+            }
+            .LoginOK {
+                display: block;
+                float: right;
+                margin-top: -1%;
+            }
+                .LoginOK a:hover {
+        text-decoration: none;
+        color: green;
+    }
+            
+        </style>
+    }
+
+</head>
+<body>
+
+
+    <div id="ToanTrang">
+
+
+        <section class="blank">
+            <div class="flash">
+                <div class="icDienThoai">
+                    <i class="fas fa-phone-square"></i>
+                    (08) 1900-2200
+                </div>
+                <div class="DangKyDangNhap">
+                    @Html.Action("GioHangPartial","GioHang")
+                    <i class="far fa-arrow-alt-circle-right"></i>
+                    <a href="@Url.Action("Create","Customer",new { })">Đăng Ký</a>
+                    <i class="fas fa-sign-in-alt"></i>
+                    <a href="@Url.Action("Login","Customer",new { })">Đăng Nhập</a>
+                </div>
+                <div class="LoginOK">
+                    @Html.Action("GioHangPartial", "GioHang")
+                    <i class="far fa-arrow-alt-circle-right"></i>
+                    <a href="@Url.Action("Details","Customer",new {@id=ViewBag.ThongBao2 })">Thông Tin</a>
+                    <i class="fas fa-sign-in-alt"></i>
+                    <a href="@Url.Action("Logout","Customer",new { })">Đăng Xuất</a>
+                </div>
+            </div>
+
+            <div class="flash success" id="divMenu">
+                <div id="txtTimKiem">
+                    @using (Html.BeginForm())
+                    {
+                        @Html.TextBox("txtTimKiem", "", htmlAttributes: new { @class = "TextBoxTimKiem", @placeholder = "Nhập vào từ khóa cần tìm" })
+                        <div id="divBtnTimKiem">
+                            <button type="submit">
+                                <i class="fas fa-search"></i>
+
+                            </button>
+                        </div>
+
+                    }
+
+                </div>
+
+                <ul class="navMenu">
+                    <li>
+                        <a href="@Url.Action("Index","Home")">Trang Chủ</a>
+
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Index","Home")">Liên Hệ</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Index","Home")">Giới Thiệu</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Index","Home")">Bánh</a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+
+        @*Phần chủ đề*@
+        <section>
+            <div class="partialChuDe">
+                @Html.Action("ChuDePartial", "ChuDe")
+            </div>
+
+            <hr>
+
+
+
+
+        </section>
+
+        <section class="blank items"></section>
+
+
+
+
+    </div>
+    @RenderBody()
+</body>
+
+</html>

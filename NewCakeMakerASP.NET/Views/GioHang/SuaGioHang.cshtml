@@ -1,0 +1,53 @@
+﻿@using NewCakeMakerASP.NET.Models
+@model List<GioHang>
+@{
+    /**/
+
+    ViewBag.Title = "Sửa Giỏ Hàng";
+    Layout = "~/Views/Layout/TrangChuLayout.cshtml";
+}
+<link href="~/Content/TrangChuLayoutCss/GioHang.css" rel="stylesheet" />
+
+<h2>GioHang</h2>
+<div class="divTable">
+
+
+    <table>
+        <tr>
+            <td>Tên Sản Phẩm</td>
+            <td>Ảnh Bìa</td>
+            <td>Đơn Gía</td>
+            <td>Số Lượng</td>
+            <td>Thành Tiền</td>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+          
+        <tr>
+            <td>@item.sTenSach</td>
+            <td><img src="@Url.Content("~/Image/" + item.sHinhAnh)" width="50" height="50" /></td>
+            <td>@item.dDonGia</td>
+            @using (Html.BeginForm("CapNhatGioHang", "GioHang", new { @idProduct = item.idProduct }))
+            {
+                <td>@Html.TextBox("txtSoLuong", @item.iSoLuong)</td>
+
+
+                <td>@item.dThanhTien</td>
+                <td>
+                    <input type="submit" value="Update" />
+                    <br />            @Html.ActionLink("Delete", "XoaGioHang", new { @idProduct = item.idProduct })
+                </td>
+
+            }
+          
+                
+            
+          
+        </tr>
+            
+
+        }
+    </table>
+</div>
+

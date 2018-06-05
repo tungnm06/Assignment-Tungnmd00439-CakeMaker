@@ -1,0 +1,21 @@
+﻿@using NewCakeMakerASP.NET.Models
+@model List<Product>
+
+
+<h1 class="item-header">Bánh Mới</h1>
+
+@{
+    foreach (var item in Model)
+    {
+        <div class="activity-list-update">
+            <img src="@Url.Content("~/Image/" + item.Image)" width="50" height="50" alt="Image">
+            <p><strong> @item.Name</strong> @item.Description <a href="@Url.Action("XemChiTiet",new {@id=item.ProductId })">Xem Sản Phẩm</a>.</p>
+            <div class="clear"></div>
+        </div>
+    }
+}
+
+<a href="#" class="item-footer green">
+    Bánh Loại Mới Nhất
+</a>
+

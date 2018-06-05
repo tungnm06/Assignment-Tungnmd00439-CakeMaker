@@ -1,0 +1,74 @@
+﻿@using NewCakeMakerASP.NET.Models
+@using PagedList.Mvc;
+
+@model PagedList.IPagedList<Product>
+@{
+    Layout = "~/Views/Layout/TrangChuLayout.cshtml";
+    ViewBag.Title = "Index";
+}
+<link href="~/Content/TrangChuLayoutCss/Index.css" rel="stylesheet" />
+
+@* Hiển thị sách theo chu de*@
+
+
+    @*Phần Bánh Mới*@
+    <div style=" float:left;width:350px;margin-top:40px; margin-bottom:150px" id="divMenuLeft">
+        <div class="activity">
+            @Html.Action("BanhMoiPartial", "Cake")
+
+
+        </div>
+    </div>
+    <div style="float:left" class="divSlider">
+
+        <img src="~/Image/anh2.jpg" height="480" width="1000" />
+
+    </div>
+    <div style="clear :both"></div>
+    <h1>@ViewBag.DangKy</h1>
+<h1 style="text-align:center; color:blue; margin-bottom:60px;">Mời Qúy Khách Chọn Sản Phẩm</h1>
+<div id="divBodyIndex">
+    <div class="listSP">
+        @{ int i = 0;}
+        @foreach (var item in Model)
+        {
+            i++;
+            <div id="SanPham">
+                <div id="ImageSp"><img src="@Url.Content("~/Image/" +item.Image)" width="100" height="150" /></div>
+                <div id="ThongTinSP">
+                    <div id="NameSp"><span>@item.Name</span></div>
+                    <div id="PrinceSp"> Prince - @item.Prince</div>
+                    <div id="btnClick"><a href="@Url.Action("XemChiTiet","Cake",new {@id=item.ProductId })">Xem Sản Phẩm</a></div>
+                    @using (Html.BeginForm("ThemGioHang", "GioHang", new { @idProduct = item.ProductId, @strURL = Request.Url.ToString() }))
+                    {
+                        <button class="add-to-cart btn btn-default" style="padding:5px;background-color:red; cursor:pointer" type="submit">THÊM GIỎI HÀNG</button>
+
+                    }
+
+                </div>
+            </div>
+            if (i % 3 == 0)
+            {
+                <div style="clear:both"></div>
+            }
+
+        }
+    </div>
+    <div style="clear:both"></div>
+    <div class="divMenuTrang">
+        Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount;
+
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))
+
+    </div>
+    <style>
+        .divMenuTrang li {
+            display: inline;
+        }
+
+        .divMenuTrang {
+            margin-left: 100px;
+        }
+    </style>
+</div>
+

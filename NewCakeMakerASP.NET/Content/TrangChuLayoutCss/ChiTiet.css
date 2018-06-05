@@ -1,0 +1,14 @@
+﻿div#divAnhsp {
+    margin-top: 100px;
+    float: left;
+    width: 600px;
+    margin-bottom:100px;
+}
+div#divThôngtinSp{
+    margin-top:100px;
+    float:right;
+    width:600px;
+}
+.action{
+    margin-top : 200px;
+}

@@ -1,0 +1,41 @@
+﻿div#SanPham {
+    float: left;
+    width: 250px;
+    margin-left: 10%;
+    margin-top: 10px;
+}
+
+    div#SanPham img {
+        width: 200px;
+        height: 200px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+
+#ThongTinSP {
+    border: 1px solid rgba(0,0,0,.2);
+    padding: 0 15px 15px 15px;
+    font-family: 'Segoe UI';
+    font-size: 18pt;
+    font-weight: 400;
+}
+#ThongTinSP span{
+    color: blue;
+}
+    #ThongTinSP span:hover {
+        color: red;
+    }
+
+#NameSp {
+    padding: 5px;
+    height: 40px;
+}
+
+#PrinceSp {
+    padding: 5px;
+ color :red;
+}
+
+#divBodyIndex {
+    margin: auto;
+}

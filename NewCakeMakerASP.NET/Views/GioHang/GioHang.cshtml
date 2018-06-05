@@ -1,0 +1,57 @@
+﻿@using NewCakeMakerASP.NET.Models
+@model List<GioHang>
+@{
+                /**/
+
+                ViewBag.Title = "GioHang";
+                Layout = "~/Views/Layout/TrangChuLayout.cshtml";
+}
+<link href="~/Content/TrangChuLayoutCss/GioHang.css" rel="stylesheet" />
+
+<h2>GioHang</h2>
+<div class="divTable">
+
+
+    <table>
+        <tr>
+            <td>Tên Sản Phẩm</td>
+            <td>Ảnh Bìa</td>
+            <td>Đơn Gía</td>
+            <td>Số Lượng</td>
+            <td>Thành Tiền</td>
+        </tr>
+    </table>
+    <table>
+        @foreach (var item in Model)
+        {
+
+            <tr>
+                <td>@item.sTenSach</td>
+                <td><a href="@Url.Action("XemChiTiet","Sach", new{@id=item.idProduct})"><img src="@Url.Content("~/Image/"+item.sHinhAnh)" width="50" height="50" /></a></td>
+                <td>@item.dDonGia</td>
+                <td>@item.iSoLuong</td>
+                <td>@item.dThanhTien</td>
+
+            </tr>
+       
+    }
+        
+            <tr>
+                <td colspan="6" style="text-align:right; color:blue">
+                    @Html.ActionLink("Sửa Giỏ Hàng", "SuaGioHang")
+                </td>
+            </tr>
+        <tr>
+            <td colspan="6" style="text-align:right; color:blue">
+                @using (Html.BeginForm("DatHang", "GioHang"))
+                {
+                    <input type="submit" value="Đặt Hàng"/>
+                }
+            </td>
+        </tr>
+
+        </table>
+
+
+    </div>
+

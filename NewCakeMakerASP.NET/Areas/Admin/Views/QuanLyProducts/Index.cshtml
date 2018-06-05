@@ -1,0 +1,80 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+@model PagedList.IPagedList<NewCakeMakerASP.NET.Models.Product>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Layout/AdminLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Name
+        </th>
+        <th>
+            Prince
+        </th>
+        <th>
+            Image
+        </th>
+        <th>
+           Descriptions
+        </th>
+        <th>
+            CreateAt
+        </th>
+        <th>
+            UpdateAt
+        </th>
+        <th>
+           TypeName
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Prince)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Image)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreateAt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdateAt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NewTypeProduct.Name)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ProductId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ProductId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ProductId })
+            </td>
+
+        </tr>
+        
+        }
+
+    </table>
+    <br />
+
+    @Html.PagedListPager(Model, page1 => Url.Action("Index",
+        new { page=page1}))
+
+

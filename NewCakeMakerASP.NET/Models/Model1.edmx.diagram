@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b3d6624ea0fb42d58740c429ae71cc03" Name="Diagram1">
+        <EntityTypeShape EntityType="DBCakeMakerModel.Customer" Width="1.5" PointX="3" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBCakeMakerModel.Employee" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBCakeMakerModel.Location" Width="1.5" PointX="3" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBCakeMakerModel.Manager" Width="1.5" PointX="5.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBCakeMakerModel.NewTypeProduct" Width="1.5" PointX="3" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBCakeMakerModel.Order" Width="1.5" PointX="5.25" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBCakeMakerModel.OrderDetail" Width="1.5" PointX="7.5" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBCakeMakerModel.Product" Width="1.5" PointX="5.25" PointY="13.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBCakeMakerModel.Shop" Width="1.5" PointX="0.75" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBCakeMakerModel.sysdiagram" Width="1.5" PointX="7.75" PointY="5.75" IsExpanded="true" />
+        <AssociationConnector Association="DBCakeMakerModel.FK_Order_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="DBCakeMakerModel.FK_Employee_Shop" ManuallyRouted="false" />
+        <AssociationConnector Association="DBCakeMakerModel.FK_Order_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="DBCakeMakerModel.FK_Location_Shop" ManuallyRouted="false" />
+        <AssociationConnector Association="DBCakeMakerModel.FK_Product_NewTypeProduct" ManuallyRouted="false" />
+        <AssociationConnector Association="DBCakeMakerModel.FK_OrderDetail_Order" ManuallyRouted="false" />
+        <AssociationConnector Association="DBCakeMakerModel.FK_OrderDetail_Product" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

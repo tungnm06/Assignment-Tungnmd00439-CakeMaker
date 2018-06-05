@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Layout/TrangChuLayout.cshtml";
+}
+@if (ViewBag.ThongBao2 != null)
+{
+    <h1 style="text-align:center; color:blue">@ViewBag.ThongBao</h1>
+
+    <style type="text/css">
+        .divLogin {
+            display: none;
+        }
+    </style>
+}
+<div class="divLogin">
+
+
+    <h2>Đăng Nhập</h2>
+
+    @using (Html.BeginForm())
+    {
+
+        <span>Tài Khoản :</span> <br />
+        @Html.TextBox("txtAccount");
+        <br />
+        <span>Mật khẩu :</span> <br />
+
+        <input name="txtPassWord" type="text" />
+        <br />
+        <input type="submit" id="btnSubmit" name="btnSubmit" />
+    }
+</div>
